@@ -1,0 +1,16 @@
+[project]
+name = "financial-market-ml"
+version = "0.1.0"
+description = "Laboratório educacional de Engenharia de Dados e Machine Learning aplicado a séries financeiras"
+readme = "README.md"
+requires-python = ">=3.14,<3.15"
+dependencies = []
+
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
