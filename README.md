@@ -64,11 +64,22 @@ Começaremos com **Python e Docker em ambiente local**, priorizando baixo custo,
 
 O projeto também funciona como laboratório de consolidação de conceitos da **AWS Certified AI Practitioner (AIF-C01)** e de práticas de Engenharia de Dados. O aprendizado segue um ciclo de estudar, implementar, testar, diagnosticar, defender e evidenciar.
 
+## Instalação e verificação local
+
+O projeto usa Python 3.14 e `uv` para gerenciar o ambiente. Na raiz do repositório, execute:
+
+```powershell
+uv sync --locked
+uv run --locked pytest
+```
+
+`uv sync --locked` instala o pacote e as dependências registradas em `uv.lock`. O teste inicial verifica se o pacote pode ser importado.
+
 ## Estado atual
 
-**Fase: concepção e especificação do MVP.**
+**Fase: fundação técnica local do Lab 01.**
 
-Este README apresenta a direção do projeto, **não uma implementação concluída**. Ainda não há pipeline, modelo treinado, benchmark ou resultados validados publicados. Com o avanço do desenvolvimento, serão adicionados código, instruções executáveis, testes e evidências.
+O projeto já tem um pacote Python instalável e uma verificação automatizada inicial, mas isso **não representa uma implementação concluída do MVP**. Ainda não há pipeline, modelo treinado, benchmark ou resultados validados publicados.
 
 ## Como participar
 
