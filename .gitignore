@@ -1,0 +1,42 @@
+# Python environments
+.venv/
+venv/
+ENV/
+
+# Python bytecode and test/tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Build and test output
+build/
+dist/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Generated datasets and experiment outputs
+/data/raw/
+/data/processed/
+/data/generated/
+/artifacts/
+/outputs/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Local environment variables and credentials
+.env
+.env.*
+!.env.example
+.aws/
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
