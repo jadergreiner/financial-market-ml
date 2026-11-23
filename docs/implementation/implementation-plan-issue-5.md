@@ -86,7 +86,7 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 
 ### T8 — Consolidar evidências e revisar os critérios
 
-**Status: Pendente.** A consolidação final e a revisão dos critérios CA-T01.1 a CA-T01.4 ainda não foram realizadas.
+**Status: Concluída.** As evidências existentes foram consolidadas e CA-T01.1 a CA-T01.4, além dos cenários da Issue, foram revisados em [T8](issue-5-t8-review.md). A Issue #5/T01 permanece aberta; T8 não representa aceite final.
 
 - Registrar comandos realmente executados, códigos de saída, versões do ambiente e dependências relevantes.
 - Registrar os resultados da verificação automatizada local e em Docker, incluindo a comparação entre ambientes.
@@ -97,12 +97,12 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 
 ## Mapeamento dos critérios de aceite
 
-| Critério | Tarefas | Evidência necessária |
-|---|---|---|
-| CA-T01.1 — Dependências instaláveis pela configuração versionada | T1, T2, T3 | Instalação limpa e versões registradas |
-| CA-T01.2 — Verificação automatizada inicial executada | T3, T6, T7 | Comando e resultado efetivamente obtido em cada ambiente |
-| CA-T01.3 — Contratos equivalentes entre local e Docker | T1, T5, T6, T7 | Mesma verificação executada nos dois ambientes e comparação documentada |
-| CA-T01.4 — Proteção contra publicação acidental de arquivos | T4, T7 | Política versionada e resultado da conferência do estado de versionamento |
+| Critério | Tarefas | Evidência necessária | Estado |
+|---|---|---|---|
+| CA-T01.1 — Dependências instaláveis pela configuração versionada | T1, T2, T3 | Instalação limpa e versões registradas | Atendido — [revisão T8](issue-5-t8-review.md#criterios-de-aceite-da-issue) |
+| CA-T01.2 — Verificação automatizada inicial executada | T3, T6, T7 | Comando e resultado efetivamente obtido em cada ambiente | Atendido — [revisão T8](issue-5-t8-review.md#criterios-de-aceite-da-issue) |
+| CA-T01.3 — Contratos equivalentes entre local e Docker | T1, T5, T6, T7 | Mesma verificação executada nos dois ambientes e comparação documentada | Atendido — [revisão T8](issue-5-t8-review.md#criterios-de-aceite-da-issue) |
+| CA-T01.4 — Proteção contra publicação acidental de arquivos | T4, T7 | Política versionada e resultado da conferência do estado de versionamento | Atendido — [revisão T8](issue-5-t8-review.md#criterios-de-aceite-da-issue) |
 
 ## Limites e encerramento
 

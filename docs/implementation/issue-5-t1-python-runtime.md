@@ -1,7 +1,7 @@
 # Registro de implementação — Issue #5, T1: versão de Python
 
 - **Issue:** [#5 — T01: Ambiente local reproduzível — Python e Docker](https://github.com/jadergreiner/financial-market-ml/issues/5)
-- **Estado:** Python e gerenciador confirmados; instalação local validada; validação Docker pendente.
+- **Estado:** Python e gerenciador confirmados; instalação local e validação Docker em `linux/amd64` e `linux/arm64` registradas.
 - **Governança:** LL-ADR-002. Decisão registrada com assistência (A1); não representa evidência de implementação independente (I0).
 
 ## Decisão registrada
@@ -28,4 +28,4 @@
 - Compatibilidade de pandas: [pandas release notes](https://pandas.pydata.org/docs/whatsnew/).
 - Comportamento do gerenciador e do lockfile: [uv — Working on projects](https://docs.astral.sh/uv/guides/projects/) e [uv — Locking and syncing](https://docs.astral.sh/uv/concepts/projects/sync/).
 - Instalação e importação locais validadas em Windows com Python 3.14.10 e uv 0.13.7; ver [evidência T3](issue-5-t3-verification.md).
-- Pendente: confirmar instalação e execução da verificação no container.
+- A instalação e a execução da verificação no container foram validadas em `linux/amd64` (T5) e `linux/arm64` (T7); consulte [evidência T8](issue-5-t8-review.md) para a consolidação e limites.

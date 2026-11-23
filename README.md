@@ -67,7 +67,7 @@ O projeto também funciona como laboratório de consolidação de conceitos da *
 ## Pré-requisitos
 
 - **Ambiente local:** PowerShell e `uv` 0.13.7, com acesso à rede para baixar Python 3.14 e as dependências do projeto. O `uv` pode gerenciar a instalação do Python; não é necessário instalar Python separadamente.
-- **Docker:** Docker Engine em modo Linux e acesso à rede para baixar a imagem base e as dependências. A execução validada foi em `linux/amd64`; ARM64 ainda está pendente.
+- **Docker:** Docker Engine em modo Linux e acesso à rede para baixar a imagem base e as dependências. Build e verificação inicial foram validados em `linux/amd64` e `linux/arm64`; consulte [a evidência T7](docs/implementation/issue-5-t7-verification.md). A versão do Docker Engine usada nessas execuções não foi registrada.
 
 Se `uv` 0.13.7 ainda não estiver instalado, use o instalador oficial no PowerShell:
 

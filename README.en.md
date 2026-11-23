@@ -65,7 +65,7 @@ The project is also a hands-on way to consolidate concepts from the **AWS Certif
 ## Prerequisites
 
 - **Local environment:** PowerShell and `uv` 0.13.7, with network access to download Python 3.14 and project dependencies. `uv` can manage the Python installation; a separate system Python installation is not required.
-- **Docker:** Docker Engine in Linux mode and network access to download the base image and dependencies. The validated run used `linux/amd64`; ARM64 remains pending.
+- **Docker:** Docker Engine in Linux mode and network access to download the base image and dependencies. The initial build and check were validated on `linux/amd64` and `linux/arm64`; see [T7 evidence](docs/implementation/issue-5-t7-verification.md). The Docker Engine version used for those runs was not recorded.
 
 If `uv` 0.13.7 is not installed, use the official PowerShell installer:
 

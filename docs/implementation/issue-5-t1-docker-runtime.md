@@ -1,7 +1,7 @@
 # Registro de implementação — Issue #5, T1: imagem Docker
 
 - **Issue:** [#5 — T01: Ambiente local reproduzível — Python e Docker](https://github.com/jadergreiner/financial-market-ml/issues/5)
-- **Estado:** proposta aceita; build e verificação em `linux/amd64` validados; `linux/arm64` pendente.
+- **Estado:** proposta aceita; build e verificação em `linux/amd64` e `linux/arm64` validados (T5/T7). A versão do Docker Engine não foi registrada.
 - **Data da aceitação:** 21/11/2026.
 - **Governança:** LL-ADR-002. Decisão registrada com assistência (A1); não representa evidência de implementação independente (I0).
 
@@ -16,7 +16,7 @@
 | Imagem | `python:3.14.10-slim-bookworm` |
 | Fixação | Tag e digest do índice OCI multiarch |
 | Plataforma de referência | `linux/amd64` |
-| Plataforma adicional | `linux/arm64`; build e execução a validar |
+| Plataforma adicional | `linux/arm64`; build e execução validados em T7 |
 | Ambiente local | Docker como referência; execução nativa opcional |
 | Evolução AWS | Reutilizar container quando compatível com o serviço escolhido |
 
@@ -39,7 +39,7 @@ O digest acima é do índice OCI multiarch consultado no Registry v2 da Docker O
 - **Fluxo de referência:** Docker CLI instalado e com acesso a um Docker Engine/daemon ativo em modo Linux, além de acesso de rede ao Docker Hub e ao índice de pacotes Python usado pelo projeto.
 - **Host Windows:** usar uma versão do Windows ainda suportada pelo Docker Desktop. Com backend WSL 2, exigir WSL 2.1.5 ou superior, virtualização de hardware habilitada e os requisitos de CPU/memória definidos pelo Docker Desktop. A documentação consultada lista CPU x64 com SLAT e 8 GB de RAM como requisitos do WSL 2.
 - **Plataforma principal:** executar ou construir para `linux/amd64`; hosts de outra arquitetura precisam de emulação ou de um builder compatível.
-- **Validação ARM64:** usar Docker Buildx/BuildKit com emulação QEMU habilitada ou um nó de build nativo `linux/arm64`. A presença da plataforma no manifesto não substitui esse teste.
+- **Validação ARM64:** build e execução do projeto foram demonstrados com Docker Buildx/BuildKit em T7. A evidência registra builder/plataforma, mas não a versão do Docker Engine.
 - **Execução nativa opcional:** Python 3.14.x e `uv` disponível com suporte a Python 3.14 e aos fluxos de projeto/lock. A versão exata do executável `uv` será registrada na configuração do ambiente nas tarefas seguintes.
 - **AWS:** credenciais e conta AWS não são necessárias para T1; a adaptação será decidida quando o serviço alvo for definido.
 
@@ -52,4 +52,5 @@ O digest acima é do índice OCI multiarch consultado no Registry v2 da Docker O
 - [Suporte de Python pelo uv](https://docs.astral.sh/uv/reference/policies/python/) lista Python 3.14 como Tier 1.
 - Digest consultado diretamente no Registry v2 para a tag indicada: `sha256:3fe1a0b6c2d6b2ebb572906cdabeca75aeb558c0c17db5ffefbcf8094871c32b`.
 - Build e verificação inicial concluídos em `linux/amd64`; ver [evidência T5](issue-5-t5-verification.md).
-- Pendente: validar `linux/arm64`, completar a comparação local/Docker e definir a política de atualização da imagem.
+- Build e execução em `linux/arm64`, além da comparação do teste e das versões entre Windows, amd64 e arm64, registrados em [evidência T7](issue-5-t7-verification.md).
+- A versão do Docker Engine não foi registrada nas evidências T5/T7. A política de atualização da imagem permanece fora da validação de T01.
