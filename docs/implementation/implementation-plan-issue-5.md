@@ -75,7 +75,7 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 
 ### T7 — Verificar equivalência e comportamento adversarial
 
-**Status: Parcial.** O teste inicial e as versões principais foram comparados entre Windows local e Docker `linux/amd64`, e as regras de exclusão foram testadas com marcadores fictícios. Falta introduzir e diagnosticar uma falha controlada de configuração ou dependência e concluir a análise de divergências.
+**Status: Parcial.** O teste inicial e as versões principais foram comparados entre Windows local e Docker `linux/amd64`, as regras de exclusão foram testadas com marcadores fictícios e uma falha controlada de configuração foi diagnosticada em cópia temporária ([evidência T7](issue-5-t7-controlled-failure.md)). Falta concluir a análise de divergências e a cobertura adversarial dos exemplos de caches, ambientes virtuais e temporários.
 
 - Executar a mesma verificação automatizada localmente e em Docker, comparando os resultados esperados.
 - Introduzir uma falha controlada de configuração ou dependência e registrar como identificá-la e diagnosticá-la.
