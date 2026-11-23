@@ -55,7 +55,7 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 
 ### T5 — Disponibilizar o ambiente Docker
 
-**Status: Concluída em `linux/amd64`.** Build e verificação inicial no container passaram; ARM64 e equivalência mais ampla permanecem pendentes em T7. Ver [evidência T5](issue-5-t5-verification.md).
+**Status: Concluída em `linux/amd64` e `linux/arm64`.** Build e verificação inicial no container passaram nas duas plataformas; resultados comparativos estão em [evidência T7](issue-5-t7-verification.md). Ver também [evidência T5](issue-5-t5-verification.md).
 
 - Criar a configuração de imagem e execução para o ambiente do projeto usando as versões definidas em T1.
 - Documentar como construir e executar a mesma verificação automatizada usada localmente.
@@ -75,7 +75,7 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 
 ### T7 — Verificar equivalência e comportamento adversarial
 
-**Status: Parcial.** Concluídos: mesmo teste em Windows local e Docker `linux/amd64`; comparação de Python 3.14.10, uv 0.13.7 e pytest 9.2.0, sem divergência nesse cenário; falha controlada de faixa Python diagnosticada em cópia temporária ([evidência T7](issue-5-t7-controlled-failure.md)); e exclusão de marcadores fictícios de credenciais e artefatos. Pendentes: ampliar a verificação de exclusão para exemplos de caches, ambientes virtuais e temporários, além de concluir a análise de divergências e a validação ARM64.
+**Status: Concluída.** O mesmo teste passou em Windows local e Docker `linux/amd64` e `linux/arm64`; Python 3.14.10, uv 0.13.7 e pytest 9.2.0 coincidiram nos três ambientes. A falha controlada de configuração foi diagnosticada em cópia temporária ([evidência](issue-5-t7-controlled-failure.md)); marcadores fictícios de ambientes virtuais, caches, temporários, credenciais e artefatos foram excluídos pelo Git e pelo contexto Docker. Ver [evidência T7](issue-5-t7-verification.md). A Issue #5/T01 permanece aberta até T8 e revisão dos critérios de aceite.
 
 - Executar a mesma verificação automatizada localmente e em Docker, comparando os resultados esperados.
 - Introduzir uma falha controlada de configuração ou dependência e registrar como identificá-la e diagnosticá-la.
