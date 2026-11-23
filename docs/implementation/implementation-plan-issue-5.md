@@ -75,7 +75,7 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 
 ### T7 — Verificar equivalência e comportamento adversarial
 
-**Status: Parcial.** O teste inicial e as versões principais foram comparados entre Windows local e Docker `linux/amd64`, as regras de exclusão foram testadas com marcadores fictícios e uma falha controlada de configuração foi diagnosticada em cópia temporária ([evidência T7](issue-5-t7-controlled-failure.md)). Falta concluir a análise de divergências e a cobertura adversarial dos exemplos de caches, ambientes virtuais e temporários.
+**Status: Parcial.** Concluídos: mesmo teste em Windows local e Docker `linux/amd64`; comparação de Python 3.14.10, uv 0.13.7 e pytest 9.2.0, sem divergência nesse cenário; falha controlada de faixa Python diagnosticada em cópia temporária ([evidência T7](issue-5-t7-controlled-failure.md)); e exclusão de marcadores fictícios de credenciais e artefatos. Pendentes: ampliar a verificação de exclusão para exemplos de caches, ambientes virtuais e temporários, além de concluir a análise de divergências e a validação ARM64.
 
 - Executar a mesma verificação automatizada localmente e em Docker, comparando os resultados esperados.
 - Introduzir uma falha controlada de configuração ou dependência e registrar como identificá-la e diagnosticá-la.
@@ -109,4 +109,4 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 - Esta tarefa não inclui gerador OHLCV, quality gate, features, target, classificador ou experimento de data leakage.
 - Não inclui infraestrutura AWS, credenciais reais ou publicação de secrets. A implementação é submetida à revisão no PR #6; isso não encerra a Issue #5/T01.
 - A sequência termina com a revisão V1 e evidências associadas à Issue #5; não avança automaticamente para T02.
-- Os estados acima refletem as evidências disponíveis em 22/11/2026. A conclusão das subtarefas não declara atendidos todos os critérios de aceite nem encerra a Issue #5/T01.
+- Os estados acima refletem as evidências disponíveis em 23/11/2026. A conclusão das subtarefas não declara atendidos todos os critérios de aceite nem encerra a Issue #5/T01.
