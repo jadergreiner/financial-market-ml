@@ -109,4 +109,6 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 - Esta tarefa não inclui gerador OHLCV, quality gate, features, target, classificador ou experimento de data leakage.
 - Não inclui infraestrutura AWS, credenciais reais ou publicação de secrets. A implementação é submetida à revisão no PR #6; isso não encerra a Issue #5/T01.
 - A sequência termina com a revisão V1 e evidências associadas à Issue #5; não avança automaticamente para T02.
-- Os estados acima refletem as evidências disponíveis em 23/11/2026. A conclusão das subtarefas não declara atendidos todos os critérios de aceite nem encerra a Issue #5/T01.
+- Os estados acima refletem as evidências disponíveis em 23/11/2026. Com base na revisão T8, CA-T01.1 a CA-T01.4 estão tecnicamente atendidos nos limites e com as ressalvas documentadas; isso não equivale ao aceite formal da T01.
+- O aceite formal da T01 e o encerramento da Issue #5 permanecem pendentes de autorização no fluxo de governança. A conclusão técnica das subtarefas não concede essa autorização.
+- O gate M0 ainda exige T02. A conclusão de T8, por si só, não autoriza avançar para T02.
