@@ -62,16 +62,31 @@ We will start with **Python and Docker locally**, focusing on low cost, simplici
 
 The project is also a hands-on way to consolidate concepts from the **AWS Certified AI Practitioner (AIF-C01)** certification and Data Engineering practices. The learning cycle is study, implement, test, diagnose, defend, and provide evidence.
 
-## Local installation and verification
+## Prerequisites
 
-The project uses Python 3.14 and `uv` to manage its environment. From the repository root, run:
+- **Local environment:** PowerShell and `uv` 0.13.7, with network access to download Python 3.14 and project dependencies. `uv` can manage the Python installation; a separate system Python installation is not required.
+- **Docker:** Docker Engine in Linux mode and network access to download the base image and dependencies. The validated run used `linux/amd64`; ARM64 remains pending.
+
+If `uv` 0.13.7 is not installed, use the official PowerShell installer:
 
 ```powershell
-uv sync --locked
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/0.13.7/install.ps1 | iex"
+```
+
+See the [official uv installation documentation](https://docs.astral.sh/uv/getting-started/installation/).
+
+## Local installation and verification
+
+From the repository root, run:
+
+```powershell
+uv python install 3.14
+uv sync --locked --python 3.14
+uv run --locked python --version
 uv run --locked pytest
 ```
 
-`uv sync --locked` installs the package and the dependencies recorded in `uv.lock`. The initial test checks that the package can be imported.
+`uv sync --locked` creates `.venv` if the environment does not exist and installs the package and dependencies recorded in `uv.lock`. `uv run` runs commands in this environment without manual activation. The initial test checks that the package can be imported.
 
 ## Docker verification
 

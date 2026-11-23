@@ -14,4 +14,19 @@
 
 ## Limites
 
-Esta evidência cobre somente o ambiente local Windows. A validação em Docker e a comparação entre ambientes permanecem pendentes para T5 e T7.
+Esta seção registra a validação local inicial em Windows; a execução Docker está registrada separadamente em [evidência T5](issue-5-t5-verification.md).
+
+## Revalidação local em ambiente limpo para T6
+
+- **Data:** 22/11/2026
+- **Ambiente:** Windows PowerShell, uv 0.13.7, Python gerenciado 3.14.10, pytest 9.2.0.
+- **Isolamento:** `UV_PROJECT_ENVIRONMENT` apontou para uma pasta temporária exclusiva em `%TEMP%`, verificada como inexistente antes da execução. O `.venv` do repositório não foi usado. A pasta temporária foi removida após todos os comandos passarem, e a variável foi limpa.
+
+| Comando executado | Resultado | Código de saída |
+|---|---|---:|
+| `uv python install 3.14` | Sucesso; Python 3.14 já estava instalado pelo uv. | 0 |
+| `uv sync --locked --python 3.14` | Sucesso; criou ambiente limpo e instalou 7 pacotes, incluindo o projeto e pytest, a partir do lockfile. | 0 |
+| `uv run --locked python --version` | `Python 3.14.10`. | 0 |
+| `uv run --locked pytest` | 1 teste aprovado em 0,05 s. | 0 |
+
+O instalador PowerShell do uv 0.13.7 está documentado no README como pré-requisito; não foi executado nesta validação porque o `uv` já estava instalado. A [documentação oficial de instalação do uv](https://docs.astral.sh/uv/getting-started/installation/) descreve o instalador versionado.

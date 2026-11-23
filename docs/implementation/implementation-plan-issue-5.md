@@ -65,7 +65,7 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 
 ### T6 — Documentar instalação e uso local
 
-**Status: Parcial.** Os comandos de instalação, verificação e Docker estão documentados em português e inglês. Faltam completar os pré-requisitos e validar o procedimento de instalação limpa conforme T6.
+**Status: Concluída.** Pré-requisitos, instalação limpa, comandos locais e Docker estão documentados em português e inglês. O procedimento local foi validado em ambiente temporário limpo e os resultados foram registrados na [evidência T3](issue-5-t3-verification.md). O instalador condicional do `uv` está documentado, mas não foi executado porque `uv` 0.13.7 já estava instalado.
 
 - Documentar pré-requisitos, instalação limpa, ativação do ambiente quando aplicável e comandos de verificação local.
 - Documentar comandos de construção e execução em Docker.

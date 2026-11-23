@@ -64,16 +64,31 @@ Começaremos com **Python e Docker em ambiente local**, priorizando baixo custo,
 
 O projeto também funciona como laboratório de consolidação de conceitos da **AWS Certified AI Practitioner (AIF-C01)** e de práticas de Engenharia de Dados. O aprendizado segue um ciclo de estudar, implementar, testar, diagnosticar, defender e evidenciar.
 
-## Instalação e verificação local
+## Pré-requisitos
 
-O projeto usa Python 3.14 e `uv` para gerenciar o ambiente. Na raiz do repositório, execute:
+- **Ambiente local:** PowerShell e `uv` 0.13.7, com acesso à rede para baixar Python 3.14 e as dependências do projeto. O `uv` pode gerenciar a instalação do Python; não é necessário instalar Python separadamente.
+- **Docker:** Docker Engine em modo Linux e acesso à rede para baixar a imagem base e as dependências. A execução validada foi em `linux/amd64`; ARM64 ainda está pendente.
+
+Se `uv` 0.13.7 ainda não estiver instalado, use o instalador oficial no PowerShell:
 
 ```powershell
-uv sync --locked
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/0.13.7/install.ps1 | iex"
+```
+
+Consulte também a [documentação oficial de instalação do uv](https://docs.astral.sh/uv/getting-started/installation/).
+
+## Instalação e verificação local
+
+Na raiz do repositório, execute:
+
+```powershell
+uv python install 3.14
+uv sync --locked --python 3.14
+uv run --locked python --version
 uv run --locked pytest
 ```
 
-`uv sync --locked` instala o pacote e as dependências registradas em `uv.lock`. O teste inicial verifica se o pacote pode ser importado.
+`uv sync --locked` cria `.venv` se o ambiente ainda não existir e instala o pacote e as dependências registradas em `uv.lock`. `uv run` executa os comandos nesse ambiente sem exigir ativação manual. O teste inicial verifica se o pacote pode ser importado.
 
 ## Verificação em Docker
 
