@@ -62,11 +62,48 @@ We will start with **Python and Docker locally**, focusing on low cost, simplici
 
 The project is also a hands-on way to consolidate concepts from the **AWS Certified AI Practitioner (AIF-C01)** certification and Data Engineering practices. The learning cycle is study, implement, test, diagnose, defend, and provide evidence.
 
+## Prerequisites
+
+- **Local environment:** PowerShell and `uv` 0.13.7, with network access to download Python 3.14 and project dependencies. `uv` can manage the Python installation; a separate system Python installation is not required.
+- **Docker:** Docker Engine in Linux mode and network access to download the base image and dependencies. The initial build and check were validated on `linux/amd64` and `linux/arm64`; see [T7 evidence](docs/implementation/issue-5-t7-verification.md). The Docker Engine version used for those runs was not recorded.
+
+If `uv` 0.13.7 is not installed, use the official PowerShell installer:
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/0.13.7/install.ps1 | iex"
+```
+
+See the [official uv installation documentation](https://docs.astral.sh/uv/getting-started/installation/).
+
+## Local installation and verification
+
+From the repository root, run:
+
+```powershell
+uv python install 3.14
+uv sync --locked --python 3.14
+uv run --locked python --version
+uv run --locked pytest
+```
+
+`uv sync --locked` creates `.venv` if the environment does not exist and installs the package and dependencies recorded in `uv.lock`. `uv run` runs commands in this environment without manual activation. The initial test checks that the package can be imported.
+
+## Docker verification
+
+With Docker Engine in Linux mode, build and run the same check:
+
+```powershell
+docker build -t financial-market-ml:local .
+docker run --rm financial-market-ml:local
+```
+
+The container uses the Python 3.14.10 image pinned by digest and uv 0.13.7.
+
 ## Current status
 
-**Phase: discovery and MVP specification.**
+**Phase: local technical foundation for Lab 01.**
 
-This README describes the intended direction, **not a finished implementation**. No pipeline, trained model, benchmark, or validated experimental results are published yet. Code, runnable instructions, tests, and evidence will be added as development progresses.
+The project now has an installable Python package and an initial automated check, but this is **not a completed MVP implementation**. No pipeline, trained model, benchmark, or validated experimental results are published yet.
 
 ## Contributing
 

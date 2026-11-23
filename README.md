@@ -64,11 +64,48 @@ Começaremos com **Python e Docker em ambiente local**, priorizando baixo custo,
 
 O projeto também funciona como laboratório de consolidação de conceitos da **AWS Certified AI Practitioner (AIF-C01)** e de práticas de Engenharia de Dados. O aprendizado segue um ciclo de estudar, implementar, testar, diagnosticar, defender e evidenciar.
 
+## Pré-requisitos
+
+- **Ambiente local:** PowerShell e `uv` 0.13.7, com acesso à rede para baixar Python 3.14 e as dependências do projeto. O `uv` pode gerenciar a instalação do Python; não é necessário instalar Python separadamente.
+- **Docker:** Docker Engine em modo Linux e acesso à rede para baixar a imagem base e as dependências. Build e verificação inicial foram validados em `linux/amd64` e `linux/arm64`; consulte [a evidência T7](docs/implementation/issue-5-t7-verification.md). A versão do Docker Engine usada nessas execuções não foi registrada.
+
+Se `uv` 0.13.7 ainda não estiver instalado, use o instalador oficial no PowerShell:
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/0.13.7/install.ps1 | iex"
+```
+
+Consulte também a [documentação oficial de instalação do uv](https://docs.astral.sh/uv/getting-started/installation/).
+
+## Instalação e verificação local
+
+Na raiz do repositório, execute:
+
+```powershell
+uv python install 3.14
+uv sync --locked --python 3.14
+uv run --locked python --version
+uv run --locked pytest
+```
+
+`uv sync --locked` cria `.venv` se o ambiente ainda não existir e instala o pacote e as dependências registradas em `uv.lock`. `uv run` executa os comandos nesse ambiente sem exigir ativação manual. O teste inicial verifica se o pacote pode ser importado.
+
+## Verificação em Docker
+
+Com Docker Engine em modo Linux, construa e execute a mesma verificação:
+
+```powershell
+docker build -t financial-market-ml:local .
+docker run --rm financial-market-ml:local
+```
+
+O container usa a imagem Python 3.14.10 fixada por digest e uv 0.13.7.
+
 ## Estado atual
 
-**Fase: concepção e especificação do MVP.**
+**Fase: fundação técnica local do Lab 01.**
 
-Este README apresenta a direção do projeto, **não uma implementação concluída**. Ainda não há pipeline, modelo treinado, benchmark ou resultados validados publicados. Com o avanço do desenvolvimento, serão adicionados código, instruções executáveis, testes e evidências.
+O projeto já tem um pacote Python instalável e uma verificação automatizada inicial, mas isso **não representa uma implementação concluída do MVP**. Ainda não há pipeline, modelo treinado, benchmark ou resultados validados publicados.
 
 ## Como participar
 
