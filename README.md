@@ -75,6 +75,17 @@ uv run --locked pytest
 
 `uv sync --locked` instala o pacote e as dependências registradas em `uv.lock`. O teste inicial verifica se o pacote pode ser importado.
 
+## Verificação em Docker
+
+Com Docker Engine em modo Linux, construa e execute a mesma verificação:
+
+```powershell
+docker build -t financial-market-ml:local .
+docker run --rm financial-market-ml:local
+```
+
+O container usa a imagem Python 3.14.10 fixada por digest e uv 0.13.7.
+
 ## Estado atual
 
 **Fase: fundação técnica local do Lab 01.**

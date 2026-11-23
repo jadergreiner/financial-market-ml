@@ -1,7 +1,7 @@
 # Registro de implementação — Issue #5, T1: imagem Docker
 
 - **Issue:** [#5 — T01: Ambiente local reproduzível — Python e Docker](https://github.com/jadergreiner/financial-market-ml/issues/5)
-- **Estado:** proposta aceita; validação de build pendente.
+- **Estado:** proposta aceita; build e verificação em `linux/amd64` validados; `linux/arm64` pendente.
 - **Data da aceitação:** 21/11/2026.
 - **Governança:** LL-ADR-002. Decisão registrada com assistência (A1); não representa evidência de implementação independente (I0).
 
@@ -51,4 +51,5 @@ O digest acima é do índice OCI multiarch consultado no Registry v2 da Docker O
 - [Builds multi-plataforma do Docker](https://docs.docker.com/build/building/multi-platform/) descrevem Buildx, emulação QEMU e builders nativos.
 - [Suporte de Python pelo uv](https://docs.astral.sh/uv/reference/policies/python/) lista Python 3.14 como Tier 1.
 - Digest consultado diretamente no Registry v2 para a tag indicada: `sha256:3fe1a0b6c2d6b2ebb572906cdabeca75aeb558c0c17db5ffefbcf8094871c32b`.
-- Pendente: construir e executar a verificação inicial em `linux/amd64` e `linux/arm64`, comparar resultados com execução local nativa se usada e definir a política de atualização da imagem.
+- Build e verificação inicial concluídos em `linux/amd64`; ver [evidência T5](issue-5-t5-verification.md).
+- Pendente: validar `linux/arm64`, completar a comparação local/Docker e definir a política de atualização da imagem.
