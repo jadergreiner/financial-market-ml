@@ -14,6 +14,8 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 
 ### T1 — Fixar as decisões do ambiente
 
+**Status: Concluída.** As decisões de ambiente foram registradas; isso não encerra a Issue #5/T01.
+
 - [x] Definir e registrar a versão de Python suportada ([decisão registrada](issue-5-t1-python-runtime.md)).
 - [x] Escolher o gerenciador de dependências e a forma de registrar versões reproduzíveis: `uv`, com dependências declaradas em `pyproject.toml` e versões resolvidas registradas em `uv.lock` ([decisão registrada](issue-5-t1-python-runtime.md)).
 - [x] Definir a imagem e a versão base do Docker ([decisão e digest registrados](issue-5-t1-docker-runtime.md)); validação de build fica para as tarefas de execução.
@@ -23,6 +25,8 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 
 ### T2 — Preparar a estrutura mínima do projeto
 
+**Status: Concluída.** Pacote instalado e importado com Python 3.14.10; configuração e lockfile estão versionados.
+
 - Criar a estrutura Python mínima necessária para instalar e importar o pacote.
 - Criar apenas diretórios e arquivos usados nesta tarefa; não antecipar módulos de dados, features ou modelos.
 - Configurar o projeto para instalação conforme as decisões registradas em T1.
@@ -30,6 +34,8 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 **Pronto quando:** a estrutura puder ser instalada a partir da configuração versionada, sem arquivos vazios desnecessários.
 
 ### T3 — Registrar dependências e verificação inicial
+
+**Status: Concluída.** Dependências resolvidas pelo lockfile e teste de importação executado localmente e no container. Ver [evidência local](issue-5-t3-verification.md) e [evidência Docker](issue-5-t5-verification.md).
 
 - Declarar as dependências de execução e desenvolvimento necessárias à fundação.
 - Registrar versões de forma reproduzível e manter a configuração alinhada à escolhida em T1.
@@ -39,6 +45,8 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 
 ### T4 — Proteger arquivos locais e artefatos
 
+**Status: Concluída.** Regras Git e do contexto Docker foram conferidas com marcadores fictícios; ver [evidência T4](issue-5-t4-verification.md).
+
 - Definir regras de exclusão para ambientes virtuais, caches, arquivos temporários, artefatos gerados e arquivos de ambiente ou credenciais.
 - Manter no Git apenas arquivos de configuração e evidências sintéticas selecionadas para divulgação.
 - Conferir o estado de versionamento para verificar que exemplos de secrets e arquivos locais não sejam incluídos.
@@ -46,6 +54,8 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 **Pronto quando:** a política estiver versionada e a conferência não encontrar arquivos locais ou sensíveis indevidamente incluídos.
 
 ### T5 — Disponibilizar o ambiente Docker
+
+**Status: Concluída em `linux/amd64`.** Build e verificação inicial no container passaram; ARM64 e equivalência mais ampla permanecem pendentes em T7. Ver [evidência T5](issue-5-t5-verification.md).
 
 - Criar a configuração de imagem e execução para o ambiente do projeto usando as versões definidas em T1.
 - Documentar como construir e executar a mesma verificação automatizada usada localmente.
@@ -55,6 +65,8 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 
 ### T6 — Documentar instalação e uso local
 
+**Status: Parcial.** Os comandos de instalação, verificação e Docker estão documentados em português e inglês. Faltam completar os pré-requisitos e validar o procedimento de instalação limpa conforme T6.
+
 - Documentar pré-requisitos, instalação limpa, ativação do ambiente quando aplicável e comandos de verificação local.
 - Documentar comandos de construção e execução em Docker.
 - Registrar somente comandos que tenham sido efetivamente executados, distinguindo instruções planejadas de resultados observados.
@@ -62,6 +74,8 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 **Pronto quando:** outra pessoa puder seguir as instruções e identificar versões, comandos e resultados esperados em cada ambiente.
 
 ### T7 — Verificar equivalência e comportamento adversarial
+
+**Status: Parcial.** O teste inicial e as versões principais foram comparados entre Windows local e Docker `linux/amd64`, e as regras de exclusão foram testadas com marcadores fictícios. Falta introduzir e diagnosticar uma falha controlada de configuração ou dependência e concluir a análise de divergências.
 
 - Executar a mesma verificação automatizada localmente e em Docker, comparando os resultados esperados.
 - Introduzir uma falha controlada de configuração ou dependência e registrar como identificá-la e diagnosticá-la.
@@ -71,6 +85,8 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 **Pronto quando:** as verificações tiverem resultados registrados, divergências estiverem explicadas e nenhum secret real for usado ou publicado.
 
 ### T8 — Consolidar evidências e revisar os critérios
+
+**Status: Pendente.** A consolidação final e a revisão dos critérios CA-T01.1 a CA-T01.4 ainda não foram realizadas.
 
 - Registrar comandos realmente executados, códigos de saída, versões do ambiente e dependências relevantes.
 - Registrar os resultados da verificação automatizada local e em Docker, incluindo a comparação entre ambientes.
@@ -91,6 +107,6 @@ Preparar um ambiente Python que possa ser instalado e verificado localmente e em
 ## Limites e encerramento
 
 - Esta tarefa não inclui gerador OHLCV, quality gate, features, target, classificador ou experimento de data leakage.
-- Não inclui infraestrutura AWS, credenciais reais, publicação de secrets, commit ou Pull Request.
+- Não inclui infraestrutura AWS, credenciais reais ou publicação de secrets. A implementação é submetida à revisão no PR #6; isso não encerra a Issue #5/T01.
 - A sequência termina com a revisão V1 e evidências associadas à Issue #5; não avança automaticamente para T02.
-- Este plano descreve o trabalho a realizar e não afirma que qualquer tarefa, teste ou critério já foi concluído.
+- Os estados acima refletem as evidências disponíveis em 22/11/2026. A conclusão das subtarefas não declara atendidos todos os critérios de aceite nem encerra a Issue #5/T01.
